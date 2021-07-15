@@ -8,12 +8,25 @@ app.get("/", (req, res) => {
   res.send("<h1>Hello world</h1>");
 });
 
+// io.on("connection", (socket) => {
+//   console.log(socket.id, "a user connected");
+
+//   socket.on("sendDrawing", (payload) => {
+//     console.log(payload);
+//     socket.broadcast.emit("sendDrawing", payload.msg);
+//   });
+
+//   socket.on("disconnect", () => {
+//     console.log(socket.id, "a user disconnected");
+//   });
+// });
+
 io.on("connection", (socket) => {
   console.log(socket.id, "a user connected");
 
-  socket.on("sendDrawing", (payload) => {
+  socket.on("canvas-data", (payload) => {
     console.log(payload);
-    socket.broadcast.emit("sendDrawing", payload.msg);
+    socket.broadcast.emit("canvas-data", payload);
   });
 
   socket.on("disconnect", () => {
