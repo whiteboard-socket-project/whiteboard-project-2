@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { socket } from "../Socket/Socket";
-import Container from "../wthiteboard/Container/ContainerAdmin";
+import Container from "../wthiteboard/Container/Container";
 class Admin extends Component {
   constructor(props) {
     super(props);
