@@ -4,28 +4,30 @@ import "../welcome/welcome.css";
 import { Link } from "react-router-dom";
 // import Main from "../main/Main";
 export class Welcome extends Component {
-    showToggle = () => { };
-    render() {
-        return (
-            <>
-                <header id="showcase">
-                    <h1>Welcome To The 401 Canvas Whiteboard</h1>
-                    <p></p>
-                    {/* <a href={} class="button">
+  showToggle = () => {};
+  render() {
+    return (
+      <>
+        <header id="showcase">
+          <h1>Welcome To The 401 Canvas Whiteboard</h1>
+          <p></p>
+          {/* <a href={} class="button">
             INSTRUCTOR
           </a> */}
-                    <Link className="button" activeClassName="is-active" to="/admin">
-                        INSTRUCTOR
-                    </Link>
-                    {/* <a href={} class="button">
+          <div className="start">
+            <Link className="button" activeClassName="is-active" to="/admin">
+              INSTRUCTOR
+            </Link>
+            {/* <a href={} class="button">
             STUDENT
           </a> */}
-                    <Link className="button" activeClassName="is-active" to="/login">
-                        STUDENT
-                    </Link>
-                </header>
-            </>
-        );
-    }
+            <Link className="button" activeClassName="is-active" to="/login">
+              STUDENT
+            </Link>
+          </div>
+        </header>
+      </>
+    );
+  }
 }
 export default Welcome;

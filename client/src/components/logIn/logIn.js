@@ -61,6 +61,18 @@ export class LogIn extends Component {
                 value="Login"
               ></input>
             </a>
+
+            {/* <a className="button enas" href="/table">
+              <input
+                className="button enas"
+                type="button"
+                value="Student Info."
+              ></input>
+            </a> */}
+
+            {/* <Link to="/student">
+              <button type="submit">Login</button>
+            </Link> */}
           </form>
           <h2>&nbsp;</h2>
         </div>
