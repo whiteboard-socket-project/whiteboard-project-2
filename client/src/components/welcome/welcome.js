@@ -20,7 +20,7 @@ export class Welcome extends Component {
                     {/* <a href={} class="button">
             STUDENT
           </a> */}
-                    <Link className="button" activeClassName="is-active" to="/student">
+                    <Link className="button" activeClassName="is-active" to="/login">
                         STUDENT
                     </Link>
                 </header>
