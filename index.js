@@ -32,6 +32,8 @@ io.on("connection", (socket) => {
     console.log(payload);
     let newUser = new userModel(payload);
     newUser.save();
+
+    socket.emit("user_table", newUser);
   });
 
   socket.on("canvas-data", (payload) => {
