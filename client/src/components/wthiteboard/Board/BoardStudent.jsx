@@ -79,7 +79,7 @@ class Board extends React.Component {
             canvas.removeEventListener('mousemove', onPaint, false);
         }, false);
 
-        var root = this;
+        // var root = this;
         var onPaint = function() {
             ctx.beginPath();
             ctx.moveTo(last_mouse.x, last_mouse.y);
@@ -87,11 +87,11 @@ class Board extends React.Component {
             ctx.closePath();
             ctx.stroke();
 
-            if(root.timeout !== undefined) clearTimeout(root.timeout);
-            root.timeout = setTimeout(function(){
-                var base64ImageData = canvas.toDataURL("image/png");
-                socket.emit("canvas-data", base64ImageData);
-            }, 1000)
+            // if(root.timeout !== undefined) clearTimeout(root.timeout);
+            // root.timeout = setTimeout(function(){
+            //     var base64ImageData = canvas.toDataURL("image/png");
+            //     socket.emit("canvas-data", base64ImageData);
+            // }, 1000)
         };
     }
 

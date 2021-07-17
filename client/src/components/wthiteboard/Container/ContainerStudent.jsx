@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from '../Board/Board';
+import Board from '../Board/BoardStudent';
 import './container.css';
 
 class Container extends React.Component

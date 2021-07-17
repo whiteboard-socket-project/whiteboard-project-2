@@ -91,30 +91,28 @@ body {
   border: 1px solid #ccc;
   font-family: inherit;
 }
-#root > div > div.center > a {
+#root > div > div.center > form > a > input {
+  width: 50% !important;
+  height: 50px;
   font-size: 18px;
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: rgb(22, 6, 53);
   border: rgb(255, 255, 255) 1px solid;
   padding: 10px 20px;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 50px;
+  /* position: relative; */
+  top: 15px;
+  left: 80px;
 }
 
+.enas a:hover {
+  cursor: pointer;
+  padding: 0px;
+}
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.enas Link:hover {
+  background-color: yellow;
+  cursor: pointer;
+  padding: 10px 20px;
+}

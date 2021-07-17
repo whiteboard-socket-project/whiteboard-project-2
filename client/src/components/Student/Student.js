@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { socket } from "../Socket/Socket";
-import Container from "../wthiteboard/Container/Container";
+import Container from "../wthiteboard/Container/ContainerStudent";
 class Student extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,6 @@ class Student extends Component {
   render() {
     return (
       <>
-
         {/* <div>working</div>
         <form onSubmit={this.drawing}>
           <input id="id" type="text" />
