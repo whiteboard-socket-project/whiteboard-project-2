@@ -8,6 +8,12 @@ export class UserTable extends Component {
     this.state = {
       userInfo: [],
     };
+
+    // socket.on("table", (data) => {
+    //   this.setState({ userInfo: [...this.state.userInfo, data] });
+
+    //   console.log("recived data", this.state.userInfo);
+    // });
   }
 
   componentDidMount() {
@@ -15,7 +21,7 @@ export class UserTable extends Component {
       console.log("server connected");
 
       socket.on("table", (data) => {
-        this.setState({ userInfo: [...this.state.userInfo, data] });
+        this.setState({ userInfo: data });
 
         console.log("recived data", this.state.userInfo);
       });
