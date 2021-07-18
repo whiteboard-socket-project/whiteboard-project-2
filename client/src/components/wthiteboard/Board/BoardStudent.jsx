@@ -15,14 +15,14 @@ class Board extends React.Component {
 
         socket.on("canvas-data", function(data){
 
-            var root = this;
-            var interval = setInterval(function(){
+            let root = this;
+            let interval = setInterval(function(){
                 if(root.isDrawing) return;
                 root.isDrawing = true;
                 clearInterval(interval);
-                var image = new Image();
-                var canvas = document.querySelector('#board');
-                var ctx = canvas.getContext('2d');
+                let image = new Image();
+                let canvas = document.querySelector('#board');
+                let ctx = canvas.getContext('2d');
                 image.onload = function() {
                     ctx.drawImage(image, 0, 0);
 
@@ -43,17 +43,17 @@ class Board extends React.Component {
     }
 
     drawOnCanvas() {
-        var canvas = document.querySelector('#board');
+        let canvas = document.querySelector('#board');
         this.ctx = canvas.getContext('2d');
-        var ctx = this.ctx;
+        let ctx = this.ctx;
 
-        var sketch = document.querySelector('#sketch');
-        var sketch_style = getComputedStyle(sketch);
+        let sketch = document.querySelector('#sketch');
+        let sketch_style = getComputedStyle(sketch);
         canvas.width = parseInt(sketch_style.getPropertyValue('width'));
         canvas.height = parseInt(sketch_style.getPropertyValue('height'));
 
-        var mouse = {x: 0, y: 0};
-        var last_mouse = {x: 0, y: 0};
+        let mouse = {x: 0, y: 0};
+        let last_mouse = {x: 0, y: 0};
 
         /* Mouse Capturing Work */
         canvas.addEventListener('mousemove', function(e) {
@@ -79,19 +79,13 @@ class Board extends React.Component {
             canvas.removeEventListener('mousemove', onPaint, false);
         }, false);
 
-        // var root = this;
-        var onPaint = function() {
+        // let root = this;
+        let onPaint = function() {
             ctx.beginPath();
             ctx.moveTo(last_mouse.x, last_mouse.y);
             ctx.lineTo(mouse.x, mouse.y);
             ctx.closePath();
             ctx.stroke();
-
-            // if(root.timeout !== undefined) clearTimeout(root.timeout);
-            // root.timeout = setTimeout(function(){
-            //     var base64ImageData = canvas.toDataURL("image/png");
-            //     socket.emit("canvas-data", base64ImageData);
-            // }, 1000)
         };
     }
 
