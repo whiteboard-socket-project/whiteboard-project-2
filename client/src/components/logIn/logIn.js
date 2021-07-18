@@ -46,6 +46,13 @@ export class LogIn extends Component {
               placeholder="your name ..."
               onChange={this.handleChange}
             />
+            <input
+              required
+              type="text"
+              name="studntEmail"
+              placeholder="example@email.com ..."
+              onChange={this.handleChange}
+            />
             {/* <Link
               className="button enas"
               activeClassName="is-active"
@@ -53,7 +60,7 @@ export class LogIn extends Component {
             >
               <input className="button enas" type="submit" value="Login" />
             </Link> */}
-
+            {/* <div className="of"> */}
             <a className="button enas" href="/student">
               <input
                 className="button enas"
@@ -62,14 +69,14 @@ export class LogIn extends Component {
               ></input>
             </a>
 
-            {/* <a className="button enas" href="/table">
+            <a className="button enas" href="/table">
               <input
                 className="button enas"
                 type="button"
                 value="Student Info."
               ></input>
-            </a> */}
-
+            </a>
+            {/* </div> */}
             {/* <Link to="/student">
               <button type="submit">Login</button>
             </Link> */}

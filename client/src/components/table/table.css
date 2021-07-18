@@ -1,69 +1,130 @@
+/*	
+	Side Navigation Menu V2, RWD
+	===================
+	Author: https://github.com/pablorgarcia
+ */
+
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
 body {
-  font-family: "lato", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color: #993528de;
+  background-color: #1f2739;
 }
-.container {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-h2 {
-  font-size: 26px;
-  margin: 20px 0;
+
+h1 {
+  font-size: 3em;
+  font-weight: 300;
+  line-height: 1em;
   text-align: center;
+  color: #4dc3fa;
 }
-h2 small {
-  font-size: 0.5em;
+
+h2 {
+  font-size: 1em;
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  line-height: 1em;
+  padding-bottom: 2em;
+  color: #fb667a;
 }
-.responsive-table li {
-  border-radius: 3px;
-  padding: 25px 30px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
-}
-.responsive-table .table-header {
-  background-color: #95a5a6;
-  font-size: 14px;
+
+h2 a {
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  color: #fb667a;
+  text-decoration: none;
 }
-.responsive-table .table-row {
-  background-color: #fff;
-  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+
+.blue {
+  color: #185875;
 }
-.responsive-table .col-1 {
-  flex-basis: 10%;
+.yellow {
+  color: #b8b68bb7;
 }
-.responsive-table .col-2 {
-  flex-basis: 40%;
+
+.containertable th h1 {
+  font-weight: bold;
+  font-size: 1em;
+  text-align: left;
+  color: #185875;
 }
-.responsive-table .col-3 {
-  flex-basis: 25%;
+
+.containertable td {
+  font-weight: normal;
+  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0e1119;
+  -moz-box-shadow: 0 2px 2px -2px #0e1119;
+  box-shadow: 0 2px 2px -2px #0e1119;
 }
-.responsive-table .col-4 {
-  flex-basis: 25%;
+
+.containertable {
+  text-align: left;
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
 }
-@media all and (max-width: 767px) {
-  .responsive-table .table-header {
+
+.containertable td,
+.containertable th {
+  padding-bottom: 2%;
+  padding-top: 2%;
+  padding-left: 2%;
+}
+
+/* Background-color of the odd rows */
+.containertable tr:nth-child(odd) {
+  background-color: #323c50;
+}
+
+/* Background-color of the even rows */
+.containertable tr:nth-child(even) {
+  background-color: #2c3446;
+}
+
+.containertable th {
+  background-color: #1f2739;
+}
+
+.containertable td:first-child {
+  color: #fb667a;
+}
+
+.containertable tr:hover {
+  background-color: #464a52;
+  -webkit-box-shadow: 0 6px 6px -6px #0e1119;
+  -moz-box-shadow: 0 6px 6px -6px #0e1119;
+  box-shadow: 0 6px 6px -6px #0e1119;
+}
+
+.containertable td:hover {
+  background-color: #bdbb91b0;
+  color: #403e10;
+  font-weight: bold;
+
+  box-shadow: #7f7c21 -1px 1px, #7f7c21 -2px 2px, #7f7c21 -3px 3px,
+    #7f7c21 -4px 4px, #7f7c21 -5px 5px, #7f7c21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+  .containertable td:nth-child(4),
+  .containertable th:nth-child(4) {
     display: none;
   }
-  .responsive-table li {
-    display: block;
-  }
-  .responsive-table .col {
-    flex-basis: 100%;
-  }
-  .responsive-table .col {
-    display: flex;
-    padding: 10px 0;
-  }
-  .responsive-table .col:before {
-    color: #6c7a89;
-    padding-right: 10px;
-    content: attr(data-label);
-    flex-basis: 50%;
-    text-align: right;
-  }
+}
+
+.fix {
+  margin: 40px;
 }

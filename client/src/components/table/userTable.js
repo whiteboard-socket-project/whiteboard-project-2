@@ -1,71 +1,86 @@
-// import React, { Component } from "react";
-// import "../table/table.css";
-// import { socket } from "../Socket/Socket";
+import React, { Component } from "react";
+import "../table/table.css";
+import { socket } from "../Socket/Socket";
 
-// export class UserTable extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       // id: "",
-//       // userName: "",
-//       // created_at: "",
-//       payload: {},
-//     };
-//   }
+export class UserTable extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userInfo: [],
+    };
+  }
 
-//   getUserInfo = () => {
-//     socket.on("user_table", (payload) => {
-//       this.setState({
-//         // id: payload._id,
-//         // userName: payload.studentName,
-//         // created_at: payload.created_at,
-//         payload: payload,
-//       });
-//     });
-//   };
+  componentDidMount() {
+    socket.on("connect", () => {
+      console.log("server connected");
 
-//   render() {
-//     const info = this.state.payload.map((user) => {
-//       return (
-//         <li class="table-row" key={user.id}>
-//           <div class="col col-1" data-label="Job Id">
-//             {user.id}
-//           </div>
-//           <div class="col col-2" data-label="Customer Name">
-//             {user.userName}
-//           </div>
-//           <div class="col col-3" data-label="Amount">
-//             {user.created_at}
-//           </div>
-//         </li>
-//       );
-//     });
+      socket.on("table", (data) => {
+        this.setState({ userInfo: [...this.state.userInfo, data] });
 
-//     return (
-//       <div class="container">
-//         <h2>Users Information</h2>
-//         <ul class="responsive-table">
-//           <li class="table-header">
-//             <div class="col col-1">User Id</div>
-//             <div class="col col-2">User Name</div>
-//             <div class="col col-3">Login Date</div>
-//           </li>
-//           {info}
-//           {/* <li class="table-row">
-//             <div class="col col-1" data-label="Job Id">
-//               {this.state.id}
-//             </div>
-//             <div class="col col-2" data-label="Customer Name">
-//               {this.state.userName}
-//             </div>
-//             <div class="col col-3" data-label="Amount">
-//               {this.state.created_at}
-//             </div>
-//           </li> */}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
+        console.log("recived data", this.state.userInfo);
+      });
+    });
+  }
 
-// export default UserTable;
+  render() {
+    console.log(this.state.userInfo);
+    // const info = this.state.userInfo.map((user) => {
+    //   return (
+    //     <>
+    //       <tr key={user._id}>
+    //         <td>{user._id}</td>
+    //         <td>{user.userName}</td>
+    //         <td>{user.studntEmail}</td>
+    //       </tr>
+    //       ;
+    //     </>
+    //   );
+    // });
+
+    return (
+      <>
+        <div className="fix"></div>
+        <h1>
+          <span className="blue">&lt;</span>User Information
+          <span className="blue">&gt;</span> <span className="yellow"></span>
+        </h1>
+        <div className="fix"></div>
+        <h2>Welcome ! you are Registerd in our class =D</h2>
+
+        <table class="containertable">
+          <thead>
+            <tr>
+              <th>
+                <h1>User ID</h1>
+              </th>
+              <th>
+                <h1>User Name</h1>
+              </th>
+              <th>
+                <h1>User Email</h1>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* {info} */}
+
+            {this.state.userInfo.map((user) => {
+              return (
+                <>
+                  <tr key={user._id}>
+                    <td>{user._id}</td>
+                    <td>{user.userName}</td>
+                    <td>{user.studntEmail}</td>
+                  </tr>
+                  ;
+                </>
+              );
+            })}
+          </tbody>
+        </table>
+      </>
+    );
+  }
+}
+
+export default UserTable;

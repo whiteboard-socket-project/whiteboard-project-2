@@ -9,7 +9,7 @@ export class Welcome extends Component {
     return (
       <>
         <header id="showcase">
-          <h1>Welcome To The 401 Canvas Whiteboard</h1>
+          <p className="welcome">Welcome To The 401 Canvas Whiteboard</p>
           <p></p>
           {/* <a href={} class="button">
             INSTRUCTOR

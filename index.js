@@ -29,11 +29,23 @@ io.on("connection", (socket) => {
   console.log(socket.id, "a user connected");
 
   socket.on("save", (payload) => {
-    console.log(payload);
-    let newUser = new userModel(payload);
+    console.log("this is from frontend", payload);
+
+    let user = {
+      studentName: payload.studentName,
+      studntEmail: payload.studntEmail,
+    };
+    console.log("user", user);
+
+    let newUser = new userModel(user);
     newUser.save();
 
-    socket.emit("user_table", newUser);
+    console.log("check if saved", newUser);
+
+    userModel.find({}, (err, data) => {
+      console.log("this is from db", data);
+      socket.emit("table", data);
+    });
   });
 
   socket.on("canvas-data", (payload) => {
