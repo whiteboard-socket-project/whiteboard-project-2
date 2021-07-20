@@ -5,6 +5,7 @@ import { socket } from "../Socket/Socket";
 export class UserTable extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       userInfo: [],
     };
@@ -17,14 +18,10 @@ export class UserTable extends Component {
   }
 
   componentDidMount() {
-    socket.on("connect", () => {
-      console.log("server connected");
+    socket.on("table", (data) => {
+      this.setState({ userInfo: data });
 
-      socket.on("table", (data) => {
-        this.setState({ userInfo: data });
-
-        console.log("recived data", this.state.userInfo);
-      });
+      console.log("recived data", this.state.userInfo);
     });
   }
 
@@ -65,6 +62,9 @@ export class UserTable extends Component {
               <th>
                 <h1>User Email</h1>
               </th>
+              <th>
+                <h1>Date of Login</h1>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -75,10 +75,10 @@ export class UserTable extends Component {
                 <>
                   <tr key={user._id}>
                     <td>{user._id}</td>
-                    <td>{user.userName}</td>
+                    <td>{user.studentName}</td>
                     <td>{user.studntEmail}</td>
+                    <td>{user.date}</td>
                   </tr>
-                  ;
                 </>
               );
             })}

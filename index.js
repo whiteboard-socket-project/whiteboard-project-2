@@ -34,26 +34,35 @@ io.on("connection", (socket) => {
     let user = {
       studentName: payload.studentName,
       studntEmail: payload.studntEmail,
+      date: payload.date,
     };
+
     console.log("user", user);
 
     let newUser = new userModel(user);
     newUser.save();
 
     console.log("check if saved", newUser);
+  });
 
-    userModel.find({}, (err, data) => {
-      console.log("this is from db", data);
-      socket.emit("table", data);
-    });
+  userModel.find({}, (err, data) => {
+    console.log("this is from db", data);
+
+    socket.emit("table", data);
   });
 
   socket.on("canvas-data", (payload) => {
     // console.log(payload);
     socket.broadcast.emit("canvas-data", payload);
-
     // let newDraw = new drawModel(payload);
     // newDraw.save();
+  });
+
+  socket.on("canvas-data", async (payload) => {
+    console.log(payload);
+
+    let newDraw = new drawModel(payload);
+    await newDraw.save();
   });
 
   socket.on("disconnect", () => {
