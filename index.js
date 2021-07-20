@@ -58,12 +58,12 @@ io.on("connection", (socket) => {
     // newDraw.save();
   });
 
-  socket.on("canvas-data", async (payload) => {
-    console.log(payload);
+  // socket.on("canvas-data", async (payload) => {
+  //   console.log(payload);
 
-    let newDraw = new drawModel(payload);
-    await newDraw.save();
-  });
+  //   let newDraw = new drawModel(payload);
+  //   await newDraw.save();
+  // });
 
   socket.on("disconnect", () => {
     console.log(socket.id, "a user disconnected");
