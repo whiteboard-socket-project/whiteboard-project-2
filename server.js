@@ -1,4 +1,5 @@
-const app = require("express")();
+const express = require("express");
+const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -7,6 +8,8 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const userModel = require("./DB/userModel");
 const drawModel = require("./DB/drawModel");
+
+let PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello world</h1>");
@@ -70,6 +73,10 @@ io.on("connection", (socket) => {
   });
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -79,8 +86,8 @@ mongoose
   })
 
   .then(() => {
-    server.listen(5000, () => {
-      console.log("listening on *:5000");
+    server.listen(PORT, () => {
+      console.log(`listening on *:${PORT}`);
     });
   })
 
