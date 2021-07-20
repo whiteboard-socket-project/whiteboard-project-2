@@ -8,11 +8,15 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const userModel = require("./DB/userModel");
 const drawModel = require("./DB/drawModel");
+const path = require("path");
+app.use(express.static(path.join(__dirname, "build")));
 
 let PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-  res.send("<h1>Hello world</h1>");
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+
+  // res.send("<h1>Hello world</h1>");
 });
 
 // io.on("connection", (socket) => {
