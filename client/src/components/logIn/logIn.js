@@ -12,6 +12,7 @@ export class LogIn extends Component {
     super(props);
     this.state = {
       studentName: "",
+      date: "",
     };
   }
 
@@ -24,7 +25,7 @@ export class LogIn extends Component {
     e.preventDefault();
     const payload = {
       ...this.state,
-      created_at: Date.now().toLocaleString(),
+      date: new Date().toString(),
     };
     console.log("hello", payload);
 

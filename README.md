@@ -1,4 +1,4 @@
-# whiteboard-project-2
+# whiteboard-project
 
 Auther: Abeer Rafati & Enas Bataineh
 
@@ -20,3 +20,5 @@ Go inside the client folder and Run in termintl
 `npm start`
 
 AND ENJOY !!!
+
+![Demo](project1-whiteboard.PNG)

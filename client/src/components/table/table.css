@@ -11,7 +11,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
   line-height: 1.42em;
-  color: #993528de;
+  color: #ffffffd8;
   background-color: #1f2739;
 }
 
@@ -56,7 +56,7 @@ h2 a {
 
 .containertable td {
   font-weight: normal;
-  font-size: 1em;
+  font-size: 0.8em;
   -webkit-box-shadow: 0 2px 2px -2px #0e1119;
   -moz-box-shadow: 0 2px 2px -2px #0e1119;
   box-shadow: 0 2px 2px -2px #0e1119;
